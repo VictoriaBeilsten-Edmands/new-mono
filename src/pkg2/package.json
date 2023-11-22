@@ -2,7 +2,6 @@
   "name": "@new-mono/pkg2",
   "version": "1.0.0",
   "dependencies": {
-    "@new-mono/pkg1": "https://github.com/VictoriaBeilsten-Edmands/new-mono/raw/main/src/pkg1/pkg1-1.0.0.tgz",
     "@types/node": "^20.9.2",
     "postcss": "^8.4.31",
     "react": "^18.2.0",
@@ -28,6 +27,9 @@
     "vite": "^4.4.9",
     "vite-plugin-dts": "^3.5.4"
   },
+  "bundledDependencies": [
+    "@new-mono/pkg1"
+  ],
   "scripts": {
     "build": "tsc && vite build"
   }
