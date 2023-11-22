@@ -1,0 +1,54 @@
+{
+  "name": "new-mono",
+  "version": "1.0.0",
+  "description": "",
+  "license": "ISC",
+  "main": "dist/index.cjs.js",
+  "module": "dist/index.es.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist"
+  ],
+  "workspaces": ["src/pkg1/**", "src/pkg2/**"],
+  "scripts": {
+    "dev": "tsc && vite build --watch",
+    "start": "vite --host --open",
+    "build:pkg1": "cd src/pkg1 && pnpm run build",
+    "build:pkg2": "cd src/pkg2 && pnpm run build",
+    "build": "pnpm run build:pkg1 && pnpm run build:pkg2",
+    "pack:pkg1": "cd src/pkg1 && pnpm pack",
+    "pack:pkg2": "cd src/pkg2 && pnpm pack",
+    "pack": "pnpm run pack:pkg1 && pnpm run pack:pkg2",
+    "build:types": "dts-bundle-generator --config ./dts-bundle-generator.config.ts",
+    "lint:scripts": "eslint . --ext .ts",
+    "lint:styles": "stylelint ./**/*.{css,scss}",
+    "format:scripts": "prettier . --write",
+    "format:styles": "stylelint ./**/*.{css,scss} --fix"
+  },
+  "dependencies": {
+    "@types/node": "^20.9.2",
+    "postcss": "^8.4.31",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.2.21",
+    "@types/react-dom": "^18.2.7",
+    "@typescript-eslint/eslint-plugin": "^6.7.0",
+    "@typescript-eslint/parser": "^6.7.0",
+    "@vitejs/plugin-react": "^4.0.4",
+    "dts-bundle-generator": "^8.0.1",
+    "eslint": "^8.49.0",
+    "eslint-config-prettier": "^9.0.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.3",
+    "stylelint": "^15.10.3",
+    "stylelint-config-recommended": "^13.0.0",
+    "stylelint-config-sass-guidelines": "^10.0.0",
+    "ts-node": "^10.9.1",
+    "tslib": "^2.6.2",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9",
+    "vite-plugin-dts": "^3.5.4"
+  }
+}
